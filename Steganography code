@@ -1,19 +1,11 @@
 import argparse
 
-
-
 from PIL import Image
-
-
-
-
 
 class Steganography:
 
 
-
     BLACK_PIXEL = (0, 0, 0)
-
 
 
     def _int_to_bin(self, rgb):
@@ -75,11 +67,9 @@ class Steganography:
         return self._bin_to_int(rgb)
 
 
-
     def _unmerge_rgb(self, rgb):
 
         """Unmerge RGB.
-
 
 
         :param rgb: An integer tuple like (220, 110, 96)
@@ -209,18 +199,13 @@ def main():
     merge.add_argument('--output', required=True, help='Output path')
 
 
-
     unmerge = subparser.add_parser('unmerge')
 
     unmerge.add_argument('--image', required=True, help='Image path')
 
     unmerge.add_argument('--output', required=True, help='Output path')
 
-
-
     args = parser.parse_args()
-
-
 
     if args.command == 'merge':
 
@@ -235,9 +220,6 @@ def main():
         image = Image.open(args.image)
 
         Steganography().unmerge(image).save(args.output)
-
-
-
 
 
 if __name__ == '__main__':
